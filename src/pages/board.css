@@ -1,0 +1,140 @@
+.board-page { display: flex; flex-direction: column; flex: 1; overflow: hidden; }
+
+.board-header {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 16px 24px;
+  border-bottom: 1px solid var(--border);
+  background: var(--bg);
+}
+.board-header-left { display: flex; align-items: center; gap: 12px; }
+.board-dot-lg { width: 12px; height: 12px; border-radius: 50%; flex-shrink: 0; }
+.board-page-title { font-size: 15px; font-weight: 700; color: var(--text-heading); letter-spacing: 0.3px; }
+.board-page-sub { font-size: 10px; color: var(--text-muted); letter-spacing: 0.8px; margin-top: 2px; }
+.board-header-right { display: flex; align-items: center; gap: 12px; }
+.icon-btn-sm {
+  width: 28px; height: 28px; border-radius: 6px;
+  border: none; background: transparent; color: var(--text);
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer; transition: all 0.15s;
+}
+.icon-btn-sm:hover { background: var(--surface-2); color: var(--text-heading); }
+
+.board-filters {
+  display: flex; align-items: center; gap: 8px;
+  padding: 10px 24px;
+  border-bottom: 1px solid var(--border);
+}
+.filter-btn {
+  display: flex; align-items: center; gap: 6px;
+  padding: 5px 12px; border-radius: var(--radius);
+  border: 1px solid var(--border);
+  background: transparent; color: var(--text);
+  font-size: 12px; cursor: pointer; transition: all 0.15s;
+}
+.filter-btn:hover { background: var(--surface-2); border-color: rgba(166,197,226,0.3); }
+
+.kanban-scroll { flex: 1; overflow-x: auto; overflow-y: hidden; }
+.kanban-board {
+  display: flex; gap: 12px;
+  padding: 20px 24px;
+  height: 100%;
+  min-height: calc(100vh - 200px);
+}
+
+.kanban-col {
+  width: 280px; min-width: 280px;
+  display: flex; flex-direction: column;
+  max-height: calc(100vh - 220px);
+}
+.col-header {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 4px 10px;
+}
+.col-title-row { display: flex; align-items: center; gap: 8px; }
+.col-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+.col-title { font-size: 12px; font-weight: 700; color: var(--text-heading); letter-spacing: 0.5px; }
+.col-count {
+  background: var(--surface-2); color: var(--text-muted);
+  font-size: 11px; font-weight: 600;
+  min-width: 20px; height: 20px; border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  padding: 0 6px;
+}
+
+.col-cards { flex: 1; overflow-y: auto; padding-right: 2px; display: flex; flex-direction: column; gap: 8px; }
+
+/* Kanban Card */
+.kanban-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 12px;
+  cursor: grab;
+  transition: all 0.18s;
+  border-left: 3px solid transparent;
+  position: relative;
+  user-select: none;
+}
+.kanban-card:active { cursor: grabbing; }
+.kanban-card:hover {
+  border-color: rgba(166,197,226,0.35);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.25);
+  transform: translateY(-1px);
+}
+
+/* Drag handle — visual indicator only, no pointer events */
+.card-drag-handle {
+  position: absolute;
+  top: 8px; right: 8px;
+  width: 22px; height: 22px;
+  border-radius: 4px;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--text-muted);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.15s;
+}
+.kanban-card:hover .card-drag-handle { opacity: 0.6; }
+
+/* Ghost / overlay card */
+.card-ghost {
+  box-shadow: 0 16px 40px rgba(0,0,0,0.5) !important;
+  border-color: var(--primary) !important;
+  transform: rotate(2deg) !important;
+  opacity: 0.95 !important;
+  cursor: grabbing;
+}
+.priority-urgent { border-left-color: #DE350B !important; }
+.priority-high    { border-left-color: #FF8B00 !important; }
+.priority-medium  { border-left-color: #0052CC !important; }
+.priority-low     { border-left-color: #738496 !important; }
+
+.card-header-row { display: flex; align-items: center; justify-content: space-between; margin-bottom: 6px; }
+.card-type-icon { font-size: 13px; }
+.card-title { font-size: 13px; font-weight: 500; color: var(--text-heading); line-height: 1.4; margin-bottom: 8px; }
+.card-labels { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 4px; }
+.card-footer { display: flex; align-items: center; justify-content: space-between; margin-top: 10px; }
+.card-meta { display: flex; align-items: center; gap: 8px; }
+.card-meta-item { display: flex; align-items: center; gap: 3px; font-size: 11px; color: var(--text-muted); }
+
+.add-card-btn {
+  display: flex; align-items: center; gap: 6px;
+  width: 100%; padding: 8px 10px;
+  border-radius: var(--radius); border: none;
+  background: transparent; color: var(--text-muted);
+  font-size: 12px; cursor: pointer; transition: all 0.15s;
+  margin-top: 4px;
+}
+.add-card-btn:hover { background: var(--surface-2); color: var(--text-heading); }
+
+.add-list-col { width: 280px; min-width: 280px; }
+.add-list-btn {
+  display: flex; align-items: center; gap: 8px;
+  width: 100%; padding: 10px 14px;
+  border-radius: var(--radius-lg);
+  border: 1px dashed var(--border);
+  background: rgba(255,255,255,0.02);
+  color: var(--text-muted); font-size: 13px;
+  cursor: pointer; transition: all 0.15s;
+}
+.add-list-btn:hover { border-color: var(--primary); color: var(--primary); }

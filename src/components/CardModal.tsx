@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { X, Tag, Users, Calendar, CheckSquare, Paperclip, Archive, Trash2, BarChart2 } from 'lucide-react';
+import { X, Tag, Users, Calendar, Paperclip, Archive, Trash2, BarChart2 } from 'lucide-react';
 import { Card } from '../data/mockData';
 
 interface Props { card: Card; onClose: () => void; }

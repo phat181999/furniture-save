@@ -1,5 +1,5 @@
 import './sidebar.css';
-import { Home, CreditCard, Bell, BarChart2, Settings, Plus, User, HelpCircle } from 'lucide-react';
+import { Home, CreditCard, Bell, BarChart2, Settings, Plus, HelpCircle } from 'lucide-react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { BOARDS, CURRENT_USER } from '../data/mockData';
 
@@ -42,7 +42,7 @@ export default function Sidebar() {
 
       <div className="sidebar-section">
         <div className="section-label">MY BOARDS</div>
-        {BOARDS.map((board, i) => (
+        {BOARDS.map((board) => (
           <button
             key={board.id}
             className={`board-item ${path === `/board/${board.id}` ? 'active' : ''}`}

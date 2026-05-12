@@ -1,11 +1,11 @@
 import { Search, Bell } from 'lucide-react';
 import { CURRENT_USER } from '../data/mockData';
 
-interface Props { title?: string; subtitle?: string; }
+
 
 const avatarColors = ['#0052CC','#6554C0','#FF8B00','#00875A','#36B37E'];
 
-export default function Topbar({ title, subtitle }: Props) {
+export default function Topbar() {
   return (
     <header className="topbar">
       <div className="topbar-search">
